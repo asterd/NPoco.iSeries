@@ -6,6 +6,13 @@ This project was created to extend the NPoco library with support to iSeries DB2
 functionalities. 
 There is also an additional extension (NPoco.SqlStoredProcedure) that provide ORM on iSeries Sql Stored Procedures.
 This library does not use ExpandoObject but only Annotated POCOs. 
+Last, but not least, there is also a basic T4 template for POCO generation from iSeries Table.
+
+# Solution Structure
+The solution is structured in this way:
+* NPoco: Project forked from NPoco project, with the addition of the iSeries DB type mapper
+* NPoco.iSeriesGen: Project that contains the T4 template for POCO generation from iSeries AS400 table, and some utility classes.
+* NPoco.SqlStoredProcedure: Project that extends NPoco to manage iSeries SQL Stored procedure execution and mapping with POCOs
 
 # Important notes !!!!
 The project NPoco inside this repo is a fork of the [NPoco] (https://github.com/schotime/NPoco) project of **Adam Schroder**.
