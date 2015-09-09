@@ -1,0 +1,7 @@
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\bin\Debug\NPoco.SqlStoredProcedures.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\bin\Debug\NPoco.SqlStoredProcedures.pdb
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\bin\Debug\NPoco.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\bin\Debug\NPoco.pdb
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\obj\Debug\NPoco.SqlStoredProcedures.csprojResolveAssemblyReference.cache
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\obj\Debug\NPoco.SqlStoredProcedures.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.SqlStoredProcedures\obj\Debug\NPoco.SqlStoredProcedures.pdb
