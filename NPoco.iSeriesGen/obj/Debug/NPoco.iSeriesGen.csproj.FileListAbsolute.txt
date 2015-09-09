@@ -1,0 +1,9 @@
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\bin\Debug\NPoco.iSeriesGen.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\bin\Debug\NPoco.iSeriesGen.pdb
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\bin\Debug\NPoco.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\bin\Debug\NPoco.pdb
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\obj\Debug\NPoco.iSeriesGen.csprojResolveAssemblyReference.cache
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\obj\Debug\NPoco.iSeriesGen.Properties.Resources.resources
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\obj\Debug\NPoco.iSeriesGen.csproj.GenerateResource.Cache
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\obj\Debug\NPoco.iSeriesGen.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\obj\Debug\NPoco.iSeriesGen.pdb

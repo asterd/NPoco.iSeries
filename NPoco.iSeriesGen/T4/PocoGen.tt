@@ -1,0 +1,60 @@
+﻿<#@ template   debug="false" hostspecific="true" language="C#" #>
+<#@ assembly   name        = "Microsoft.CSharp"             #>
+<#@ assembly   name        = "System.Core"                  #>
+<#@ assembly   name        = "System.Data"                  #>
+<#@ assembly   name        ="$(SolutionDir)NPoco\bin\Debug\NPoco.dll" #>
+<#@ assembly   name        ="$(SolutionDir)NPoco.iSeriesGen\bin\Debug\NPoco.iSeriesGen.dll" #>
+<#@ import     namespace   = "System"                       #>
+<#@ import     namespace   = "System.Collections.Generic"   #> 
+<#@ import     namespace   = "System.Linq"                  #>
+<#@ import     namespace   = "NPoco"                        #> 
+<#@ import     namespace   = "NPoco.iSeriesGen.Generator"   #>
+<#  
+	// System.Diagnostics.Debugger.Launch();
+	var namespaceName    = "<YOUR_NAMESPACE>";
+	var tableSchema      = "<YOUR_TABLE_SCHEMA>"; 
+	var tableName        = "<YOUR_TABLE_NAME>"; 
+	bool isSqlTable      = false;
+
+	IDatabase db = new Database("Data Source=****;UserID=****;Password=****;", "IBM.Data.DB2.iSeries");
+	List<PocoTableInfo> tableColumnData;
+
+	if (isSqlTable)
+	{
+		IEnumerable<PocoTableInfo> data =
+			db.Query<PocoTableInfo>(String.Format(GenConstants.SQLTableInfoQuery, tableSchema, tableName), null);
+		tableColumnData = data.ToList();
+	}
+	else
+	{
+		IEnumerable<PocoTableInfo> data =
+			db.Query<PocoTableInfo>(String.Format(GenConstants.NativeTableInfoQuery, tableSchema, tableName), null);
+		tableColumnData = data.ToList();
+	}
+#>
+using NPoco; 
+
+namespace <#=namespaceName #>
+{
+	[TableName("<#=tableSchema #>.<#=tableName #>")]
+<#
+foreach(PocoTableInfo pti in tableColumnData) {
+	if (pti.IsPrimaryKeyColumn()) { 
+#>
+	[PrimaryKey("<#=pti.ColumnName#>")] 
+<#
+	}
+}
+#> 
+	public class <#=GenUtils.ToTitleCase(tableName)#>Table
+	{
+<#
+	foreach(PocoTableInfo pti in tableColumnData) {
+#>
+		[Column("<#=pti.ColumnName#>")]
+		public <#=GenUtils.ToCsDataType(pti.DataType)#> <#=GenUtils.ToTitleCase(pti.ColumnName)#> { get; set; }
+<#
+	}
+#>
+	}
+}
