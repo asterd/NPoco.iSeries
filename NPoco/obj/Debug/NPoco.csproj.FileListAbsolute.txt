@@ -1,4 +1,0 @@
-C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco\bin\Debug\NPoco.dll
-C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco\bin\Debug\NPoco.pdb
-C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco\obj\Debug\NPoco.dll
-C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco\obj\Debug\NPoco.pdb
