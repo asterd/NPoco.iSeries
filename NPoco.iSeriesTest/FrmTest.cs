@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using NPoco.iSeriesGen;
 using NPoco.iSeriesTest.Poco;
 using NPoco.SqlStoredProcedures;
 
@@ -42,6 +43,13 @@ namespace NPoco.iSeriesTest
             storedResult.ToList().ForEach(c => Console.WriteLine(c.FirstName + @" - " + c.LastName));
             Console.WriteLine(ts.ErrorMessage);
             db.CloseSharedConnection();
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            PocoGenerator.GeneratePoco(
+                "PocoTest", "PRORCEDI", "TESPRO0F", false, "CCISI", "MERSY", "MERSY", "C:/");
+            MessageBox.Show(@"Done!");
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnStartTest = new System.Windows.Forms.Button();
+            this.btnGenerate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStartTest
@@ -41,11 +42,22 @@
             this.btnStartTest.UseVisualStyleBackColor = true;
             this.btnStartTest.Click += new System.EventHandler(this.btnStartTest_Click);
             // 
-            // frmTest
+            // btnGenerate
+            // 
+            this.btnGenerate.Location = new System.Drawing.Point(186, 215);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(90, 35);
+            this.btnGenerate.TabIndex = 1;
+            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // FrmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 262);
+            this.ClientSize = new System.Drawing.Size(391, 262);
+            this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.btnStartTest);
             this.Name = "FrmTest";
             this.Text = "iSeries Test";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnStartTest;
+        private System.Windows.Forms.Button btnGenerate;
     }
 }
 

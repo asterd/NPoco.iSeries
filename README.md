@@ -13,6 +13,12 @@ The solution is structured in this way:
 * NPoco: Project forked from NPoco project, with the addition of the iSeries DB type mapper
 * NPoco.iSeriesGen: Project that contains the T4 template for POCO generation from iSeries AS400 table, and some utility classes.
 * NPoco.SqlStoredProcedure: Project that extends NPoco to manage iSeries SQL Stored procedure execution and mapping with POCOs
+* NPoco.iSeriesTest: Project that contains various test and a Form for class generation using T4 template.
+
+# Guide and References
+For documentation about using NPoco checkout the official documentation [Wiki] (https://github.com/schotime/NPoco/wiki/Home).
+For SqlStoredProcedures and T4 template generation using GUI, checkout the code, is self-explanatory. As soon as possible i'll add
+some wiki for that.
 
 # Important notes !!!!
 The project NPoco inside this repo is a fork of the [NPoco] (https://github.com/schotime/NPoco) project of **Adam Schroder**.

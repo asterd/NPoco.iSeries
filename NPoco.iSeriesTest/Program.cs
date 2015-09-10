@@ -13,7 +13,7 @@ namespace NPoco.iSeriesTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTest());
+            Application.Run(new FrmGenerator());
         }
     }
 }

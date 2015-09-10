@@ -9,14 +9,18 @@
 <#@ import     namespace   = "System.Linq"                  #>
 <#@ import     namespace   = "NPoco"                        #> 
 <#@ import     namespace   = "NPoco.iSeriesGen.Generator"   #>
+<#@ parameter  name        = "ConfigObject" type="NPoco.iSeriesGen.Generator.TemplateConfig" #>
 <#  
 	// System.Diagnostics.Debugger.Launch();
-	var namespaceName    = "<YOUR_NAMESPACE>";
-	var tableSchema      = "<YOUR_TABLE_SCHEMA>"; 
-	var tableName        = "<YOUR_TABLE_NAME>"; 
-	bool isSqlTable      = false;
+	var namespaceName    = ConfigObject.NameSpace;
+	var tableSchema      = ConfigObject.TableSchema;  
+	var tableName        = ConfigObject.TableName; 
+    var tableType        = ConfigObject.GetTableTypeName();
+    var fmtTableName     = ConfigObject.GetFmtTableName();
+	bool isSqlTable      = ConfigObject.IsSqlSchema; 
 
-	IDatabase db = new Database("Data Source=****;UserID=****;Password=****;", "IBM.Data.DB2.iSeries");
+
+	IDatabase db = new Database(ConfigObject.DatabaseConnectionURL, ConfigObject.DatabaseProvider);
 	List<PocoTableInfo> tableColumnData;
 
 	if (isSqlTable)
@@ -33,28 +37,89 @@
 	}
 #>
 using NPoco; 
+using System;
+using System.Collections.Generic;
 
 namespace <#=namespaceName #>
 {
+
+    #region <#=fmtTableName#> POCO definition
+
 	[TableName("<#=tableSchema #>.<#=tableName #>")]
-<#
+<# 
 foreach(PocoTableInfo pti in tableColumnData) {
 	if (pti.IsPrimaryKeyColumn()) { 
 #>
 	[PrimaryKey("<#=pti.ColumnName#>")] 
-<#
-	}
-}
+<#	
+    }
+} 
 #> 
-	public class <#=GenUtils.ToTitleCase(tableName)#>Table
+	public class <#=tableType#>
 	{
-<#
-	foreach(PocoTableInfo pti in tableColumnData) {
-#>
+<#	
+foreach(PocoTableInfo pti in tableColumnData) { #>
 		[Column("<#=pti.ColumnName#>")]
 		public <#=GenUtils.ToCsDataType(pti.DataType)#> <#=GenUtils.ToTitleCase(pti.ColumnName)#> { get; set; }
-<#
-	}
-#>
-	}
+<#	
+} 
+#>	}
+
+    #endregion <#=fmtTableName#> POCO definition
+
+    #region <#=fmtTableName#> CRUD Manager
+
+    public class <#=fmtTableName#>CRUD
+    {
+        private readonly IDatabase _database;
+
+        public <#=fmtTableName#>CRUD(IDatabase database)
+        {
+            _database = database;
+        }
+
+        /// <summary>
+        /// Select *
+        /// </summary>
+        /// <returns></returns>
+        public List<<#=tableType#>> SelectAll()
+        {
+            return Select("", null);
+        }
+
+        /// <summary>
+        /// Select items with condition
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public List<<#=tableType#>> Select(string condition, params object[] parameters)
+        {
+            if (String.IsNullOrEmpty(condition)) 
+                return _database.Fetch<<#=tableType#>>();
+            return _database.Fetch<<#=tableType#>>(condition, parameters);
+        }
+
+        /// <summary>
+        /// Insert new item inside database table
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public object Insert(<#=tableType#> item)
+        {
+            return _database.Insert(item);
+        }
+
+        /// <summary>
+        /// Insert new item inside database table
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public int Update(<#=tableType#> item)
+        {
+            return _database.Update(item);
+        }
+    }
+
+    #endregion <#=fmtTableName#> CRUD Manager
 }

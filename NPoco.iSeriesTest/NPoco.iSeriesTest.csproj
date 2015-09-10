@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NPoco.iSeriesTest</RootNamespace>
     <AssemblyName>NPoco.iSeriesTest</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,6 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\OrientableLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FrmGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGenerator.Designer.cs">
+      <DependentUpon>FrmGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,9 @@
     <Compile Include="Poco\SPCustomerSelect.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmGenerator.resx">
+      <DependentUpon>FrmGenerator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -65,6 +80,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -78,6 +94,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NPoco.iSeriesGen\NPoco.iSeriesGen.csproj">
+      <Project>{32eaac9d-429b-4622-80f5-e61751b5ca91}</Project>
+      <Name>NPoco.iSeriesGen</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NPoco.SqlStoredProcedures\NPoco.SqlStoredProcedures.csproj">
       <Project>{31f22017-f781-4b82-98e8-e1799feb03a4}</Project>
       <Name>NPoco.SqlStoredProcedures</Name>
@@ -86,6 +106,9 @@
       <Project>{8620d6fb-21bd-44fd-a94b-c04412ddcfd1}</Project>
       <Name>NPoco</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

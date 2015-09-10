@@ -2,10 +2,13 @@ C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.iS
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.iSeriesTest.exe
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.iSeriesTest.pdb
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.iSeriesGen.dll
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.SqlStoredProcedures.dll
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.iSeriesGen.pdb
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.SqlStoredProcedures.pdb
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\bin\Debug\NPoco.pdb
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\obj\Debug\NPoco.iSeriesTest.csprojResolveAssemblyReference.cache
+C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\obj\Debug\NPoco.iSeriesTest.FrmGenerator.resources
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\obj\Debug\NPoco.iSeriesTest.FrmTest.resources
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\obj\Debug\NPoco.iSeriesTest.Properties.Resources.resources
 C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesTest\obj\Debug\NPoco.iSeriesTest.csproj.GenerateResource.Cache
