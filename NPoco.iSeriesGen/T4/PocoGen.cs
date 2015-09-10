@@ -129,63 +129,127 @@ foreach(PocoTableInfo pti in tableColumnData) {
             #line 60 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
 	
 foreach(PocoTableInfo pti in tableColumnData) { 
+
             
             #line default
             #line hidden
             this.Write("\t\t[Column(\"");
             
-            #line 62 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 63 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pti.ColumnName));
             
             #line default
             #line hidden
             this.Write("\")]\r\n\t\tpublic ");
             
-            #line 63 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 64 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GenUtils.ToCsDataType(pti.DataType)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 63 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 64 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GenUtils.ToTitleCase(pti.ColumnName)));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n");
             
-            #line 64 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 65 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
 	
 } 
 
             
             #line default
             #line hidden
-            this.Write("\t}\r\n\r\n    #endregion ");
+            this.Write("\t\r\n        /// <summary>\r\n        /// Return the list of columns \r\n        /// </" +
+                    "summary>\r\n        /// <returns></returns>\r\n        public static string[] GetCol" +
+                    "umnsList()\r\n\t    {\r\n\t        var colList = new List<string>();\r\n");
             
-            #line 68 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 75 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+	
+foreach(PocoTableInfo pti in tableColumnData) { 
+
+            
+            #line default
+            #line hidden
+            this.Write("\t\t    colList.Add(\"");
+            
+            #line 78 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GenUtils.ToTitleCase(pti.ColumnName)));
+            
+            #line default
+            #line hidden
+            this.Write("\");\r\n");
+            
+            #line 79 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+	
+} 
+
+            
+            #line default
+            #line hidden
+            this.Write(@"	        return colList.ToArray();
+	    }
+
+        /// <summary>
+        /// Get row as TAB separated string
+        /// Utility method for WINDEV bridge
+        /// </summary>
+        /// <returns></returns>
+	    public string GetRowItem()
+	    {
+	        var sb = new StringBuilder();
+");
+            
+            #line 93 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+	
+foreach(PocoTableInfo pti in tableColumnData) { 
+
+            
+            #line default
+            #line hidden
+            this.Write("\t\t    sb.Append(");
+            
+            #line 96 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GenUtils.ToTitleCase(pti.ColumnName)));
+            
+            #line default
+            #line hidden
+            this.Write(" + \"\\t\");\r\n");
+            
+            #line 97 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+	
+} 
+
+            
+            #line default
+            #line hidden
+            this.Write("\t        return sb.ToString();\r\n\t    }\r\n    }\r\n\r\n    #endregion ");
+            
+            #line 104 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fmtTableName));
             
             #line default
             #line hidden
             this.Write(" POCO definition\r\n\r\n    #region ");
             
-            #line 70 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 106 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fmtTableName));
             
             #line default
             #line hidden
             this.Write(" CRUD Manager\r\n\r\n    public class ");
             
-            #line 72 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 108 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fmtTableName));
             
             #line default
             #line hidden
             this.Write("CRUD\r\n    {\r\n        private readonly IDatabase _database;\r\n\r\n        public ");
             
-            #line 76 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 112 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fmtTableName));
             
             #line default
@@ -194,7 +258,7 @@ foreach(PocoTableInfo pti in tableColumnData) {
                     "\r\n\r\n        /// <summary>\r\n        /// Select *\r\n        /// </summary>\r\n       " +
                     " /// <returns></returns>\r\n        public List<");
             
-            #line 85 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 121 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
             
             #line default
@@ -212,7 +276,7 @@ foreach(PocoTableInfo pti in tableColumnData) {
         /// <returns></returns>
         public List<");
             
-            #line 96 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 132 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
             
             #line default
@@ -220,14 +284,14 @@ foreach(PocoTableInfo pti in tableColumnData) {
             this.Write("> Select(string condition, params object[] parameters)\r\n        {\r\n            if" +
                     " (String.IsNullOrEmpty(condition)) \r\n                return _database.Fetch<");
             
-            #line 99 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 135 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
             
             #line default
             #line hidden
             this.Write(">();\r\n            return _database.Fetch<");
             
-            #line 100 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 136 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
             
             #line default
@@ -237,7 +301,7 @@ foreach(PocoTableInfo pti in tableColumnData) {
                     "=\"item\"></param>\r\n        /// <returns></returns>\r\n        public object Insert(" +
                     "");
             
-            #line 108 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 144 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
             
             #line default
@@ -254,15 +318,42 @@ foreach(PocoTableInfo pti in tableColumnData) {
         /// <returns></returns>
         public int Update(");
             
-            #line 118 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 154 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
             
             #line default
             #line hidden
-            this.Write(" item)\r\n        {\r\n            return _database.Update(item);\r\n        }\r\n    }\r\n" +
-                    "\r\n    #endregion ");
+            this.Write(" item)\r\n        {\r\n            return _database.Update(item);\r\n        }\r\n\r\n     " +
+                    "   /// <summary>\r\n        /// Delete using full poco\r\n        /// </summary>\r\n  " +
+                    "      /// <param name=\"item\"></param>\r\n        public int Delete(");
             
-            #line 124 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            #line 163 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
+            
+            #line default
+            #line hidden
+            this.Write(@" item)
+        {
+            return _database.Delete(item);
+        }
+
+        /// <summary>
+        /// Delete item with primary key value
+        /// </summary>
+        /// <param name=""primaryKeyValue""></param>
+        /// <returns></returns>
+        public int Delete(object primaryKeyValue)
+        {
+            return _database.Delete<");
+            
+            #line 175 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(tableType));
+            
+            #line default
+            #line hidden
+            this.Write(">(primaryKeyValue);\r\n        }\r\n    }\r\n\r\n    #endregion ");
+            
+            #line 179 "C:\Progetti\vs2012\Standalone\NPoco.iSeries\NPoco.iSeriesGen\T4\PocoGen.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(fmtTableName));
             
             #line default

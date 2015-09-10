@@ -58,12 +58,48 @@ foreach(PocoTableInfo pti in tableColumnData) {
 	public class <#=tableType#>
 	{
 <#	
-foreach(PocoTableInfo pti in tableColumnData) { #>
+foreach(PocoTableInfo pti in tableColumnData) { 
+#>
 		[Column("<#=pti.ColumnName#>")]
 		public <#=GenUtils.ToCsDataType(pti.DataType)#> <#=GenUtils.ToTitleCase(pti.ColumnName)#> { get; set; }
 <#	
 } 
-#>	}
+#>	
+        /// <summary>
+        /// Return the list of columns 
+        /// </summary>
+        /// <returns></returns>
+        public static string[] GetColumnsList()
+	    {
+	        var colList = new List<string>();
+<#	
+foreach(PocoTableInfo pti in tableColumnData) { 
+#>
+		    colList.Add("<#=GenUtils.ToTitleCase(pti.ColumnName)#>");
+<#	
+} 
+#>
+	        return colList.ToArray();
+	    }
+
+        /// <summary>
+        /// Get row as TAB separated string
+        /// Utility method for WINDEV bridge
+        /// </summary>
+        /// <returns></returns>
+	    public string GetRowItem()
+	    {
+	        var sb = new StringBuilder();
+<#	
+foreach(PocoTableInfo pti in tableColumnData) { 
+#>
+		    sb.Append(<#=GenUtils.ToTitleCase(pti.ColumnName) #> + "\t");
+<#	
+} 
+#>
+	        return sb.ToString();
+	    }
+    }
 
     #endregion <#=fmtTableName#> POCO definition
 
@@ -118,6 +154,25 @@ foreach(PocoTableInfo pti in tableColumnData) { #>
         public int Update(<#=tableType#> item)
         {
             return _database.Update(item);
+        }
+
+        /// <summary>
+        /// Delete using full poco
+        /// </summary>
+        /// <param name="item"></param>
+        public int Delete(<#=tableType#> item)
+        {
+            return _database.Delete(item);
+        }
+
+        /// <summary>
+        /// Delete item with primary key value
+        /// </summary>
+        /// <param name="primaryKeyValue"></param>
+        /// <returns></returns>
+        public int Delete(object primaryKeyValue)
+        {
+            return _database.Delete<<#=tableType#>>(primaryKeyValue);
         }
     }
 
